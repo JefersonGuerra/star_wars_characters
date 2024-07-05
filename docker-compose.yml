@@ -1,0 +1,25 @@
+services:
+  next-app-dev:
+    env_file: ".env"
+    container_name: star_wars_characters_dev
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: always
+    command: yarn dev
+    environment:
+      - WATCHPACK_POLLING=true
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - 3000:3000
+  next-app:
+    container_name: star_wars_characters
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    restart: always
+    ports:
+      - "3001:3001"
