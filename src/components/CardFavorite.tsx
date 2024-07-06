@@ -3,20 +3,20 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image'
 import { favoriteCharactersType } from '@/types/favoriteCharactersType'
 
-export default function CardFavorite() {
-    
-    const [dataCharacters, setCharacters] = useState<favoriteCharactersType>();
+export default function CardFavorite({ page }: Props) {
 
-    function setDataCharacters(){
-        const storagedCharacters = localStorage.getItem("favoriteCharacters");
-        if(storagedCharacters){
-            setCharacters(JSON.parse(storagedCharacters))
-        }
+  const [dataCharacters, setCharacters] = useState<favoriteCharactersType>();
+
+  function setDataCharacters(page_size: number, page_number: number) {
+    const storagedCharacters = localStorage.getItem("favoriteCharacters");
+    if (storagedCharacters) {
+      setCharacters(JSON.parse(storagedCharacters).slice((page_number - 1) * page_size, page_number * page_size))
     }
+  }
 
-    useEffect(() => {
-        setDataCharacters();
-    }, [])
+  useEffect(() => {
+    setDataCharacters(10, page);
+  }, [page])
 
   return (
     dataCharacters?.map(item => {
@@ -32,9 +32,13 @@ export default function CardFavorite() {
             <p className="w-full float-left font-[montserratbold] text-[16px] text-black px-[15px] mt-1">Eye color: <span className='font-[montserratregular] text-color_5'>{item.eye_color}</span></p>
             <p className="w-full float-left font-[montserratbold] text-[16px] text-black px-[15px] mt-1">Birth year: <span className='font-[montserratregular] text-color_5'>{item.birth_year}</span></p>
             <p className="w-full float-left font-[montserratbold] text-[16px] text-black px-[15px] mt-1 mb-5">Gender: <span className='font-[montserratregular] text-color_5'>{item.gender}</span></p>
-          </div >
-        </div >
+          </div>
+        </div>
       )
     })
   )
+}
+
+interface Props {
+  page: number,
 }
