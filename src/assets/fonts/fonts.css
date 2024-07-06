@@ -7,9 +7,6 @@
 
 }
 
-
-
-
 @font-face {
     font-family: 'star-jedi-hollowregular';
     src: url('../fonts/starjedi/starjhol-webfont.woff2') format('woff2'),
@@ -50,6 +47,15 @@
     font-family: 'montserratsemibold';
     src: url('../fonts/montserrat/montserrat-semibold-webfont.woff2') format('woff2'),
         url('../fonts/montserrat/montserrat-semibold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'montserratbold';
+    src: url('../fonts/montserrat/montserrat-bold-webfont.woff2') format('woff2'),
+        url('../fonts/montserrat/montserrat-bold-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
