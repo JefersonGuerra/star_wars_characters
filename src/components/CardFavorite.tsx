@@ -1,34 +1,29 @@
+'use client'
 import { useEffect, useState } from 'react';
 import Image from 'next/image'
-import { charactersType } from '@/types/charactersType'
-import Favorite from '@/components/Favorite'
+import { favoriteCharactersType } from '@/types/favoriteCharactersType'
 
-export default function Card({ data }: Props) {
+export default function CardFavorite() {
+    
+    const [dataCharacters, setCharacters] = useState<favoriteCharactersType>();
 
-  const [dataCharactersFavorite, setCharactersFavorite] = useState<any>();
-
-  function setDataCharacters() {
-    const storagedCharacters = localStorage.getItem("favoriteCharacters");
-    if (storagedCharacters) {
-      setCharactersFavorite(JSON.parse(storagedCharacters).map((item: any) => item.url))
+    function setDataCharacters(){
+        const storagedCharacters = localStorage.getItem("favoriteCharacters");
+        if(storagedCharacters){
+            setCharacters(JSON.parse(storagedCharacters))
+        }
     }
-  }
 
-  useEffect(() => {
-    setDataCharacters();
-  }, [])
+    useEffect(() => {
+        setDataCharacters();
+    }, [])
 
   return (
-    data?.results.map(item => {
+    dataCharacters?.map(item => {
       return (
         <div key={`${item.url.split('/')[5]}`} className="w-full float-left bg-white border-[3px] border-color_1 rounded-[16px] overflow-hidden shadow-2xl">
           <div className="w-full float-left relative" >
             <Image width={400} height={550} priority={true} src={`/img/people/${item.url.split('/')[5]}.jpg`} alt={`${item.name}`} />
-            {dataCharactersFavorite?.includes(item.url) ?
-              <Favorite data={item} status={true} />
-              :
-              <Favorite data={item} status={false}  />
-            }
             <p className="w-full float-left font-[montserratbold] text-[25px] text-center text-color_9 px-[15px] [text-shadow:_0_3px_0_rgb(255_0_0_/_50%)] mt-5">{item.name}</p>
             <p className="w-full float-left font-[montserratbold] text-[16px] text-black px-[15px] mt-3">Height: <span className='font-[montserratregular] text-color_5'>{item.height}</span></p>
             <p className="w-full float-left font-[montserratbold] text-[16px] text-black px-[15px] mt-1">Mass: <span className='font-[montserratregular] text-color_5'>{item.mass}</span></p>
@@ -42,7 +37,4 @@ export default function Card({ data }: Props) {
       )
     })
   )
-}
-interface Props {
-  data: charactersType | undefined
 }

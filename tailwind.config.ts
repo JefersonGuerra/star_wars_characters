@@ -22,6 +22,7 @@ const config: Config = {
         'color_11': '#005c4b',
         'color_12': '#0b141a',
         'color_13': '#0c1317',
+        'color_14': '#0058ff',
       },
     },
   },
