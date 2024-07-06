@@ -2,7 +2,7 @@ import Image from 'next/image'
 
 export default function Card() {
   return (
-    <div className="w-[400px] float-left bg-white border-[3px] border-color_1 rounded-[16px] overflow-hidden shadow-2xl">
+    <div className="w-full float-left bg-white border-[3px] border-color_1 rounded-[16px] overflow-hidden shadow-2xl">
       <div className="w-full float-left relative">
         <Image width={400} height={550} src={'/img/people/1.jpg'} alt="img" />
         <div className="w-full float-left flex items-center mt-[14px] mb-[10px]">
