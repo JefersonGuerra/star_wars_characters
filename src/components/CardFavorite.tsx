@@ -1,5 +1,4 @@
 'use client'
-import Image from 'next/image'
 import { favoriteCharactersType } from '@/types/favoriteCharactersType'
 import { X } from 'lucide-react';
 
@@ -10,7 +9,7 @@ export default function CardFavorite({ data, removeFav }: Props) {
         <div key={`${item.url.split('/')[5]}`} className="w-full float-left bg-white border-[3px] border-color_1 rounded-[16px] overflow-hidden shadow-2xl">
           <div className="w-full float-left relative list-characters" >
             <X onClick={() => removeFav(item.url)} className='w-[25px] h-[25px] absolute top-0 right-0 bg-white rounded-bl-lg text-color_7 cursor-pointer' />
-            <Image width={400} height={550} priority={true} src={`/img/people/${item.url.split('/')[5]}.jpg`} alt={`${item.name}`} />
+            <img src={`/img/people/${item.url.split('/')[5]}.jpg`} width={400} height={550} alt={`${item.name}`} />
             <h2 className="w-full float-left font-[montserratbold] text-[25px] text-center text-color_9 px-[15px] [text-shadow:_0_3px_0_rgb(255_0_0_/_50%)] mt-5">{item.name}</h2>
             <p className="w-full float-left font-[montserratbold] text-[16px] text-black px-[15px] mt-3">Height: <span className='font-[montserratregular] text-color_5'>{item.height}</span></p>
             <p className="w-full float-left font-[montserratbold] text-[16px] text-black px-[15px] mt-1">Mass: <span className='font-[montserratregular] text-color_5'>{item.mass}</span></p>
