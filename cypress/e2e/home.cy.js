@@ -9,7 +9,7 @@ describe('Navigation', () => {
 describe('API', () => {
   it('should find name characters in the list', () => {
     cy.visit(Cypress.env('host'))
-    cy.request('https://swapi.dev/api/people').then((response) => {
+    cy.request(Cypress.env('api_server')).then((response) => {
       const data = response.body.results;
       cy.get('.list-characters').each(($el, index) => {
         cy.wrap($el).find('h2').contains(data[index].name)
