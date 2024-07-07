@@ -2,27 +2,16 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image'
 import { favoriteCharactersType } from '@/types/favoriteCharactersType'
+import { X } from 'lucide-react';
 
-export default function CardFavorite({ page }: Props) {
-
-  const [dataCharacters, setCharacters] = useState<favoriteCharactersType>();
-
-  function setDataCharacters(page_size: number, page_number: number) {
-    const storagedCharacters = localStorage.getItem("favoriteCharacters");
-    if (storagedCharacters) {
-      setCharacters(JSON.parse(storagedCharacters).slice((page_number - 1) * page_size, page_number * page_size))
-    }
-  }
-
-  useEffect(() => {
-    setDataCharacters(10, page);
-  }, [page])
+export default function CardFavorite({ data, removeFav }: Props) {
 
   return (
-    dataCharacters?.map(item => {
+    data?.map(item => {
       return (
         <div key={`${item.url.split('/')[5]}`} className="w-full float-left bg-white border-[3px] border-color_1 rounded-[16px] overflow-hidden shadow-2xl">
           <div className="w-full float-left relative" >
+            <X onClick={() => removeFav(item.url)} className='w-[25px] h-[25px] absolute top-0 right-0 bg-white rounded-bl-lg text-color_7 cursor-pointer' />
             <Image width={400} height={550} priority={true} src={`/img/people/${item.url.split('/')[5]}.jpg`} alt={`${item.name}`} />
             <p className="w-full float-left font-[montserratbold] text-[25px] text-center text-color_9 px-[15px] [text-shadow:_0_3px_0_rgb(255_0_0_/_50%)] mt-5">{item.name}</p>
             <p className="w-full float-left font-[montserratbold] text-[16px] text-black px-[15px] mt-3">Height: <span className='font-[montserratregular] text-color_5'>{item.height}</span></p>
@@ -40,5 +29,6 @@ export default function CardFavorite({ page }: Props) {
 }
 
 interface Props {
-  page: number,
+  data?: favoriteCharactersType,
+  removeFav(param: string): void
 }
