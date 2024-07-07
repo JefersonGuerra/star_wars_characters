@@ -22,14 +22,14 @@ export default function Card({ data }: Props) {
     data?.results.map(item => {
       return (
         <div key={`${item.url.split('/')[5]}`} className="w-full float-left bg-white border-[3px] border-color_1 rounded-[16px] overflow-hidden shadow-2xl">
-          <div className="w-full float-left relative" >
+          <div className="w-full float-left relative list-characters" >
             <Image width={400} height={550} priority={true} src={`/img/people/${item.url.split('/')[5]}.jpg`} alt={`${item.name}`} />
             {dataCharactersFavorite?.includes(item.url) ?
               <Favorite data={item} status={true} />
               :
               <Favorite data={item} status={false}  />
             }
-            <p className="w-full float-left font-[montserratbold] text-[25px] text-center text-color_9 px-[15px] [text-shadow:_0_3px_0_rgb(255_0_0_/_50%)] mt-5">{item.name}</p>
+            <h2 className="w-full float-left font-[montserratbold] text-[25px] text-center text-color_9 px-[15px] [text-shadow:_0_3px_0_rgb(255_0_0_/_50%)] mt-5">{item.name}</h2>
             <p className="w-full float-left font-[montserratbold] text-[16px] text-black px-[15px] mt-3">Height: <span className='font-[montserratregular] text-color_5'>{item.height}</span></p>
             <p className="w-full float-left font-[montserratbold] text-[16px] text-black px-[15px] mt-1">Mass: <span className='font-[montserratregular] text-color_5'>{item.mass}</span></p>
             <p className="w-full float-left font-[montserratbold] text-[16px] text-black px-[15px] mt-1">Hair color: <span className='font-[montserratregular] text-color_5'>{item.hair_color}</span></p>
