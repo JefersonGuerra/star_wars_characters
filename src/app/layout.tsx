@@ -19,8 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="w-full min-h-[100vh] bg-color_2">
+        <div className="w-full min-h-[100vh] bg-gradient-to-b from-[#090a15] via-[#090a15] to-slate-800">
           <div className="w-[1490px] mx-auto">
+            <div className='w-full float-left my-7'>
+              <p className='w-full float-left text-[60px] text-center text-white font-[star-jediregular] [text-shadow:_0_10px_0_rgb(255_0_0_/_50%)]'>@</p>
+            </div>
             {children}
           </div>
         </div>

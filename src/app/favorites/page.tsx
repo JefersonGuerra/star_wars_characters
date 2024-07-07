@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react'
 import CardFavorite from '@/components/CardFavorite'
 import ReactPaginate from 'react-paginate'
 import { favoriteCharactersType } from '@/types/favoriteCharactersType'
+import Link from 'next/link'
+import { House } from 'lucide-react'
 
 export default function Favorites() {
 
@@ -37,8 +39,11 @@ export default function Favorites() {
 
     return (
         <main>
-            <div className='w-full float-left my-7'>
-                <p className='w-full float-left text-[60px] text-center text-color_12 font-[star-jediregular] [text-shadow:_0_3px_0_rgb(255_0_0_/_50%)]'>@</p>
+            <div className='w-full flex justify-center items-center mb-7'>
+                <Link href="/" className='p-[14px] border-[1px] border-[#1f1f1f] rounded-[8px] text-white flex items-center hover:bg-[#1f1f1f]'>
+                    <House className={`w-[15px] h-[15px] mr-1`} />
+                    Home
+                </Link>
             </div>
             <div className="w-full grid grid-cols-4 gap-4">
                 <CardFavorite data={dataCharacters} removeFav={(param) => removeFavoriteCharacters(param)} />

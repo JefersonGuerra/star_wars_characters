@@ -15,4 +15,4 @@ export type favoriteCharactersType = [{
     created: string,
     edited: string,
     url: string
-}] | null
+}]

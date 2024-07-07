@@ -1,11 +1,9 @@
 'use client'
-import { useEffect, useState } from 'react';
 import Image from 'next/image'
 import { favoriteCharactersType } from '@/types/favoriteCharactersType'
 import { X } from 'lucide-react';
 
 export default function CardFavorite({ data, removeFav }: Props) {
-
   return (
     data?.map(item => {
       return (
