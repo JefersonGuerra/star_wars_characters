@@ -45,7 +45,7 @@ export default function Favorites() {
                     Home
                 </Link>
             </div>
-            <div className="w-full grid grid-cols-4 gap-4">
+            <div className="w-full grid grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 <CardFavorite data={dataCharacters} removeFav={(param) => removeFavoriteCharacters(param)} />
             </div>
             <div className="w-full py-[20px] flex justify-center">

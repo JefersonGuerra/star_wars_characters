@@ -37,7 +37,7 @@ export default function Home() {
           <LoadingRing className="w-[50px] h-[50px] lds-ring" border="border-[5px] border-[#ff000080_transparent_transparent_transparent]" />
         </div>
         :
-        <div className="w-full grid grid-cols-4 gap-4">
+        <div className="w-full grid grid-cols-1 min-[400px]:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           <Card data={dataCharacters} />
         </div>
       }
