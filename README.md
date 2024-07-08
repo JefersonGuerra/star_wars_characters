@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+#### Crie o arquivo (.env) com as  variáveis de ambiente, podendo seguir os exemplos do arquivo (.env.example)
+ - O projeto executará o end-point no arquivo (.env), porém caso não tenha setado a variável de ambiente, o padrão será: https://swapi.dev/api/people
 
-## Getting Started
+ - Para executar o projeto com Docker o arquivo (.env) é obrigatório
 
-First, run the development server:
+##### Exemplos:
+```bash
+API_BASE_URL="https://swapi.dev/api/people"
+```
+
+ #### Crie o arquivo (cypress.env.json) com as  variáveis de ambiente para teste e2e, podendo seguir os exemplos do arquivo (cypress.env-example.json)
+
+##### Exemplos:
+```bash
+{
+    "host": "http://localhost:3000",
+    "api_server": "https://swapi.dev/api/people"
+}
+```
+## Executando o projeto em modo padrão
+
+Primeiro instale as dependências na raiz do projeto:
+
+```bash
+npm install
+# ou
+yarn install
+```
+
+#### Executar projeto em modo de desenvolvimento:
 
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Executar projeto em modo de produção:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build
+npm run start
+# ou
+yarn build
+yarn start
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Executando o projeto com Docker:
 
-## Learn More
+ - Para executar o projeto com Docker o arquivo (.env) é obrigatório
 
-To learn more about Next.js, take a look at the following resources:
+#### Executar projeto em modo de desenvolvimento:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+docker-compose up next-app-dev -d
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+#### Executar projeto em modo de produção:
 
-## Deploy on Vercel
+```bash
+docker-compose up next-app -d
+```
+#### Executar o container de desenvolvimento e produção ao mesmo tempo:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+docker-compose up -d
+```
+## Executar teste (e2e) com Cypress:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+##### Crie o arquivo (cypress.env.json) com as  variáveis de ambiente para teste e2e, podendo seguir os exemplos do arquivo (cypress.env-example.json)
+
+#### Executando teste:
+```bash
+npm run test
+# ou
+yarn test
+```
+
+- Executando o comando irá abrir uma janela com duas opções E2E Testing e Component Testing, click em E2E Testing
+
+<img src="/public/readme/1.jpg">
+
+- Selecione o navegador para realização do teste e click em: Start E2E Testing in ("Navegador escolhido")
+
+<img src="/public/readme/2.jpg">
+
+- Na aba do menu lateral click em Specs e selecione o teste home.cy.js
+
+<img src="/public/readme/3.jpg">
