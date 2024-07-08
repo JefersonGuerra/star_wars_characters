@@ -78,12 +78,12 @@ yarn test
 
 - Executando o comando irá abrir uma janela com duas opções E2E Testing e Component Testing, click em E2E Testing
 
-<img src="/public/readme/1.jpg">
+![image1](https://github.com/JefersonGuerra/star_wars_characters/blob/main/public/readme/1.JPG)
 
 - Selecione o navegador para realização do teste e click em: Start E2E Testing in ("Navegador escolhido")
 
-<img src="/public/readme/2.jpg">
+![image2](https://github.com/JefersonGuerra/star_wars_characters/blob/main/public/readme/2.JPG)
 
 - Na aba do menu lateral click em Specs e selecione o teste home.cy.js
 
-<img src="/public/readme/3.jpg">
+![image3](https://github.com/JefersonGuerra/star_wars_characters/blob/main/public/readme/3.JPG)
